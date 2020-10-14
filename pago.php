@@ -41,7 +41,7 @@
 	<!--llamar al mesero-->
 	
 	<div class="container"  style="padding-top: 100px;">
-		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-shopping-cart"></i>&nbsp;Su pedido</p>
+		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-money"></i>&nbsp;Su cuenta</p>
 
 		<div class="row">
 			<div class="col-12">
@@ -50,10 +50,6 @@
 						<br>
 						<p>
 						Boneless Personales<br>
-						<small class="text-muted">
-						+ Salsa Buffalo<br>
-						+ Papas con queso y tocino
-						</small>
 						</p>
 						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
 						<small style="color: #854D27;">$89.90</small></p>
@@ -61,32 +57,36 @@
 				</div>
 			</div>
 		</div>
-		<br>
+		
+		<hr>
 		<div class="row">
 			<div class="col-12">
-				<div class="card" style="border: none; border-radius: 7px;">
+				<div class="card" style="border: none; border-radius: 7px; background-color: #854D27; color: #E7E393">
 					<div class="col-12">
 						<br>
+						<label>Consumo</label>
+						<p style="font-size: 15px; text-align: right; background-color: #E7E393; padding-right: 7px; border-radius: 7px;">
+						<small style="color: #854D27;  padding-right: 17px;">$89.90</small></p>
+						<label for="propina">Propina</label>
+						<p style="font-size: 15px; text-align: right; background-color: #E7E393; padding-right: 7px; border-radius: 7px;">
+							<select style="text-align-last:right; font-size: 15px; padding-right: 5px; background-color: #E7E393; border-radius: 7px; color: #854d27;" name="propina" id="propina">
+							  <option value="diez">10%</option>
+							  <option value="quince">15%</option>
+							  <option value="veinte">20%</option>
+							  <option value="nada">No dejar propina</option>
+							</select>
+						</p>
 						<p>
-						Alitas Personales<br>
-						<small class="text-muted">
-						+ Salsa Lemon Pepper<br>
-						+ Papas naturales
-						</small>
+						Total por pagar
 						</p>
 						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
-						<small style="color: #854D27;">$79.90</small></p>
+						<small style="color: #854D27;">$98.89</small></p>
+						
+						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</button>
+						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-credit-card"></i>&nbsp;Tarjeta de crédito / débito</button>
+						<br>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<br>
-		<div class="row">
-			<div class="col-12">
-				<button type="button" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;">
-				<i class="fas fa-concierge-bell"></i>&nbsp;Ordenar</button>
-				<hr>
 			</div>
 		</div>
 

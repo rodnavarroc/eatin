@@ -20,7 +20,10 @@
 				<div class="navbar navbar-expand-lg navbar-dark" style="background-color: #854D27; border-radius: 999px;">
 				  <a class="navbar-brand" href="index.php" style="font-family: Epilogue; color: white;"><font color="#F4C95D">EatIn |</font> <small style="color: #E7E393;">Las Alitas Santa Catarina</small></a>
 				  <span class="navbar-text">
-				      <a href="cart.php" style="color: #E7E393;"><i class="fas fa-shopping-cart"></i></a>
+				      <a href="cart.php" style="color: #E7E393;"><i class="fa fa-shopping-cart"></i></a>
+				  </span>
+					<span class="navbar-text">
+				      <a href="pago.php" style="color: #E7E393;"><i class="fa fa-money"></i></a>
 				  </span>
 				</div>
 			</div>
