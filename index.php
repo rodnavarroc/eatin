@@ -18,7 +18,7 @@
 			<div class="col">
 				<br>
 				<div class="navbar navbar-expand-lg navbar-dark" style="background-color: #854D27; border-radius: 999px;">
-				  <a class="navbar-brand" href="index.php" style="font-family: Epilogue; color: white;"><font color="#F4C95D">EatIn |</font> <small style="color: #E7E393;">Las Alitas Santa Catarina</small></a>
+				  <a class="navbar-brand" href="index.php" style="font-family: Epilogue; color: white;"><font color="#F4C95D">EatIn |</font> <small style="color: #E7E393;">Mireles Wings</small></a>
 				  <span class="navbar-text">
 				      <a href="cart.php" style="color: #E7E393;"><i class="fa fa-shopping-cart"></i></a>
 				  </span>
@@ -40,15 +40,15 @@
 	</div>
 	<!--llamar al mesero-->
 	
-	<div class="container" style="padding-top: 100px;">
+	<div class="container" style="padding-top: 90px;">
 		<div class="row">
 			<div class="col-12">
-				<center><img src="https://www.lasalitas.com/mt-content/uploads/2019/04/lasalitas-logo2019.png" class="img-fluid" width="50%;"></center>
+				<center><img src=".vs\images\mirelesWings_Logo.png" class="img-fluid" width="20%;" height="20%;"></center>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-12">
-				<center><h3 style="font-family: News Cycle; padding: 5px 20px; font-size: 22px;">¡Bienvenido/a a <br><b>Las Alitas Santa Catarina</b>! <br>¿Qué vas a comer hoy?</h3></center>
+				<center><h3 style="font-family: News Cycle; padding: 5px 20px; font-size: 22px;">¡Bienvenido/a <br><b>Mireles Wings</b>! <br>¿Qué vas a comer hoy?</h3></center>
 				<br>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 		<div class="row" style="padding: 0px 15px;">
 			<div class="col-4 categorias">
 				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="http://lorempixel.com/300/300/food/1" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/78955031_2401514466731929_55783808334561280_o.jpg?_nc_cat=111&ccb=2&_nc_sid=a26aad&_nc_eui2=AeF1LnSuk3V3ZPvHKRZR7aZcjSDPgmSbTEeNIM-CZJtMR-ij_iOFO9W_X2qub4FvFi0&_nc_ohc=Xc_HcVc289YAX_f5Hbp&_nc_ht=scontent.fmty1-1.fna&oh=22b15c61aa53e16a84a965c26f5f763f&oe=5FC53D85" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Boneless</center>
 				  </div>
@@ -66,7 +66,7 @@
 			</div>
 			<div class="col-4 categorias">
 				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="http://lorempixel.com/300/300/food/8" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/76710726_2391285641088145_5473722015280005120_o.jpg?_nc_cat=111&ccb=2&_nc_sid=8bfeb9&_nc_eui2=AeGee5twsDA6WY9qDJuuky0JlVlBCeFjnIWVWUEJ4WOchRhIXW8MGHa-Uj7qLQJdbOU&_nc_ohc=DWXVQbNhpUsAX8wh5JQ&_nc_ht=scontent.fmty1-1.fna&oh=dfe112b6285c490e964661f081c5f806&oe=5FC3E441" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Alitas</center>
 				  </div>
@@ -74,9 +74,33 @@
 			</div>
 			<div class="col-4 categorias">
 				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="http://lorempixel.com/300/300/food/9" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/81373227_2429187320631310_3413772644040835072_o.jpg?_nc_cat=110&ccb=2&_nc_sid=a26aad&_nc_eui2=AeHIIb-Rx4Wm9XUgjd36PI5i9zcn5mP5J373NyfmY_knfqxDP5f1tBScx7HJsFMAVC8&_nc_ohc=qwTPyc9QcvcAX8QeBjB&_nc_ht=scontent.fmty1-1.fna&oh=eae08044828553596a118057b433aa35&oe=5FC42162" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Tenders</center>
+				  </div>
+				</div>
+			</div>
+			<div class="col-4 categorias">
+				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/78151890_2397782743771768_2052173354424598528_n.jpg?_nc_cat=111&ccb=2&_nc_sid=a26aad&_nc_eui2=AeGaXl0_UzpPIifIZSYJSfpsxUya2Ti01zPFTJrZOLTXM_9tqrdcbSZpIlBff2MaaUQ&_nc_ohc=foVqC8ppL_QAX9QuoEi&_nc_ht=scontent.fmty1-1.fna&oh=495f801807f7dbfc9072fcce3d4db88a&oe=5FC1E47F" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <div style="font-size: 12px; padding: 10px 12px;">
+				    <center>Complementos</center>
+				  </div>
+				</div>
+			</div>
+			<div class="col-4 categorias">
+				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/76710860_2395000514049991_1476014628516397056_o.jpg?_nc_cat=110&ccb=2&_nc_sid=a26aad&_nc_eui2=AeHbJeyHY1wJBvY7ZuJQTx7jq24soKn-8JOrbiygqf7wk77_7f7i9VUodeak76jA2JE&_nc_ohc=QDCz-7xWHxwAX_9Nzlq&_nc_ht=scontent.fmty1-1.fna&oh=4e018eb9efbc4441b1c692618488763f&oe=5FC38EE7" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <div style="font-size: 12px; padding: 10px 12px;">
+				    <center>Otros Platillos</center>
+				  </div>
+				</div>
+			</div>
+			<div class="col-4 categorias">
+				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/64220199_2274087352807975_885873086820253696_n.jpg?_nc_cat=104&ccb=2&_nc_sid=8bfeb9&_nc_eui2=AeEAbcZjwOdHHVxbSfQ3WOoXBKGXBGE4qcwEoZcEYTipzHac1LLKNRzfKFOTgE1Qzww&_nc_ohc=pm_QmC10HMoAX9Lu5En&_nc_ht=scontent.fmty1-1.fna&oh=e5a97610a661d6778c1384361500163d&oe=5FC4C033" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <div style="font-size: 12px; padding: 10px 12px;">
+				    <center>Bebidas xk se hace chikito? :(</center>
 				  </div>
 				</div>
 			</div>
