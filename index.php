@@ -22,7 +22,7 @@
 				  <span class="navbar-text">
 				      <a href="cart.php" style="color: #E7E393;"><i class="fa fa-shopping-cart"></i></a>
 				  </span>
-					<span class="navbar-text">
+				  <span class="navbar-text">
 				      <a href="pago.php" style="color: #E7E393;"><i class="fa fa-money"></i></a>
 				  </span>
 				</div>
@@ -55,7 +55,7 @@
 	</div>
 	<div class="container-fluid">
 		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fas fa-certificate"></i>&nbsp;Categorías | <small>Encuentra lo que buscas</small></p>
-		<div class="row" style="padding: 0px 15px;">
+		<div class="d-flex flex-row flex-nowrap overflow-auto" style="padding: 0px 15px;">
 			<div class="col-4 categorias">
 				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
 				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/78955031_2401514466731929_55783808334561280_o.jpg?_nc_cat=111&ccb=2&_nc_sid=a26aad&_nc_eui2=AeF1LnSuk3V3ZPvHKRZR7aZcjSDPgmSbTEeNIM-CZJtMR-ij_iOFO9W_X2qub4FvFi0&_nc_ohc=Xc_HcVc289YAX_f5Hbp&_nc_ht=scontent.fmty1-1.fna&oh=22b15c61aa53e16a84a965c26f5f763f&oe=5FC53D85" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
