@@ -1,3 +1,11 @@
+<?php
+
+$mesa = 27; // = $_GET['mesa'];
+session_start();
+$_SESSION['mesa'] = $mesa;
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,48 +63,48 @@
 		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fas fa-certificate"></i>&nbsp;Categorías | <small>Encuentra lo que buscas</small></p>
 		<div class="d-flex flex-row flex-nowrap overflow-auto" style="padding: 0px 15px;">
 			<div class="col-4 categorias">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/78955031_2401514466731929_55783808334561280_o.jpg?_nc_cat=111&ccb=2&_nc_sid=a26aad&_nc_eui2=AeF1LnSuk3V3ZPvHKRZR7aZcjSDPgmSbTEeNIM-CZJtMR-ij_iOFO9W_X2qub4FvFi0&_nc_ohc=Xc_HcVc289YAX_f5Hbp&_nc_ht=scontent.fmty1-1.fna&oh=22b15c61aa53e16a84a965c26f5f763f&oe=5FC53D85" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				<a class="section_link" href="seccion.php?s=boneless"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src=".vs/images/boneless.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Boneless</center>
 				  </div>
-				</div>
+				</div></a>
 			</div>
 			<div class="col-4 categorias">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/76710726_2391285641088145_5473722015280005120_o.jpg?_nc_cat=111&ccb=2&_nc_sid=8bfeb9&_nc_eui2=AeGee5twsDA6WY9qDJuuky0JlVlBCeFjnIWVWUEJ4WOchRhIXW8MGHa-Uj7qLQJdbOU&_nc_ohc=DWXVQbNhpUsAX8wh5JQ&_nc_ht=scontent.fmty1-1.fna&oh=dfe112b6285c490e964661f081c5f806&oe=5FC3E441" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				<a class="section_link" href="seccion.php?s=alitas"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src=".vs/images/alitas.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Alitas</center>
 				  </div>
 				</div>
 			</div>
 			<div class="col-4 categorias">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/81373227_2429187320631310_3413772644040835072_o.jpg?_nc_cat=110&ccb=2&_nc_sid=a26aad&_nc_eui2=AeHIIb-Rx4Wm9XUgjd36PI5i9zcn5mP5J373NyfmY_knfqxDP5f1tBScx7HJsFMAVC8&_nc_ohc=qwTPyc9QcvcAX8QeBjB&_nc_ht=scontent.fmty1-1.fna&oh=eae08044828553596a118057b433aa35&oe=5FC42162" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				<a class="section_link" href="seccion.php?s=tenders"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src=".vs/images/tenders.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Tenders</center>
 				  </div>
 				</div>
 			</div>
 			<div class="col-4 categorias">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/78151890_2397782743771768_2052173354424598528_n.jpg?_nc_cat=111&ccb=2&_nc_sid=a26aad&_nc_eui2=AeGaXl0_UzpPIifIZSYJSfpsxUya2Ti01zPFTJrZOLTXM_9tqrdcbSZpIlBff2MaaUQ&_nc_ohc=foVqC8ppL_QAX9QuoEi&_nc_ht=scontent.fmty1-1.fna&oh=495f801807f7dbfc9072fcce3d4db88a&oe=5FC1E47F" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				<a class="section_link" href="seccion.php?s=complementos"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src=".vs/images/papas.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Complementos</center>
 				  </div>
 				</div>
 			</div>
 			<div class="col-4 categorias">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
-				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/76710860_2395000514049991_1476014628516397056_o.jpg?_nc_cat=110&ccb=2&_nc_sid=a26aad&_nc_eui2=AeHbJeyHY1wJBvY7ZuJQTx7jq24soKn-8JOrbiygqf7wk77_7f7i9VUodeak76jA2JE&_nc_ohc=QDCz-7xWHxwAX_9Nzlq&_nc_ht=scontent.fmty1-1.fna&oh=4e018eb9efbc4441b1c692618488763f&oe=5FC38EE7" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				<a class="section_link" href="seccion.php?s=otros"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				  <img src=".vs/images/otros.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Otros Platillos</center>
 				  </div>
 				</div>
 			</div>
 			<div class="col-4 categorias">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393;">
-				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/64220199_2274087352807975_885873086820253696_n.jpg?_nc_cat=104&ccb=2&_nc_sid=8bfeb9&_nc_eui2=AeEAbcZjwOdHHVxbSfQ3WOoXBKGXBGE4qcwEoZcEYTipzHac1LLKNRzfKFOTgE1Qzww&_nc_ohc=pm_QmC10HMoAX9Lu5En&_nc_ht=scontent.fmty1-1.fna&oh=e5a97610a661d6778c1384361500163d&oe=5FC4C033" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				<a class="section_link" href="seccion.php?s=boneless"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393;">
+				  <img src=".vs/images/bebidas.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Bebidas</center>
 				  </div>
@@ -106,13 +114,13 @@
 		<hr>
 	</div>
 	<div class="container-fluid">
-		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fas fa-certificate"></i>&nbsp;Destacados | <small>Los favoritos de todos</small></p>
+		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fas fa-certificate"></i>&nbsp;Nuestros Favoritos | <small>Los más pedidos</small></p>
 		<div class="row">
 			<div class="col-12">
 				<div class="card" style="border: none; border-radius: 7px;">
-				  <img src="http://lorempixel.com/300/150/food/4" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <img src=".vs/images/fav_boneless.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div class="card-body">
-				    <p style="font-family: Epilogue; color: #854D27;">Boneless Personales <small class="text-muted">(8 piezas)</small></p>
+				    <p style="font-family: Epilogue; color: #854D27;">Boneless Personales <small class="text-muted">(250g)</small></p>
 				    <p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				    tempor incididunt ut labore et dolore magna aliqua.
 				    </p>
@@ -132,9 +140,28 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="card" style="border: none; border-radius: 7px;">
-				  <img src="http://lorempixel.com/300/150/food/8" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <img src=".vs/images/fav_alitas.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div class="card-body">
-				    <p style="font-family: Epilogue; color: #854D27;">Alitas Personales <small class="text-muted">(8 piezas)</small></p>
+				    <p style="font-family: Epilogue; color: #854D27;">Alitas Personales <small class="text-muted">(250g)</small></p>
+				    <p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				    tempor incididunt ut labore et dolore magna aliqua.
+				    </p>
+				    <div class="row">
+				    	<div class="col-12">
+				    	<button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
+					    </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-12">
+				<div class="card" style="border: none; border-radius: 7px;">
+				  <img src=".vs/images/fav_tenders.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <div class="card-body">
+				    <p style="font-family: Epilogue; color: #854D27;">Tenders Personales <small class="text-muted">(250g)</small></p>
 				    <p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				    tempor incididunt ut labore et dolore magna aliqua.
 				    </p>
@@ -234,6 +261,13 @@
 	  padding: 3% 5%;
 	  text-decoration: none;
 	  font-size: 17px;
+	}
+
+	.section_link
+	{
+		display: block;
+		text-decoration: none;
+		color: inherit;
 	}
 </style>
 

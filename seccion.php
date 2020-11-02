@@ -1,3 +1,11 @@
+<?php
+
+if(!isset($_GET['s'])) header("Location: index.php");
+
+$seccion = ucfirst($_GET['s']);
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,55 +47,26 @@
 	<!--llamar al mesero-->
 	
 	<div class="container"  style="padding-top: 100px;">
-		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-money"></i>&nbsp;Su cuenta</p>
+		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;">&nbsp;<i class="fas fa-ellipsis-v"></i>&nbsp;&nbsp;<?php echo $seccion;?></p>
 
 		<div class="row">
 			<div class="col-12">
 				<div class="card" style="border: none; border-radius: 7px;">
-					<div class="col-12">
-						<br>
-						<p>
-						Boneless Personales<br>
-						<small class="text-muted">
-						+ Salsa Buffalo<br>
-						+ Papas con queso y tocino
-						</small>
-						</p>
-						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
-						<small style="color: #854D27;">$89.90</small></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<hr>
-		<div class="row">
-			<div class="col-12">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #854D27; color: #E7E393">
-					<div class="col-12">
-						<br>
-						<label>Consumo</label>
-						<p style="font-size: 15px; text-align: right; background-color: #E7E393; padding-right: 7px; border-radius: 7px;">
-						<small style="color: #854D27;  padding-right: 17px;">$89.90</small></p>
-						<label for="propina">Propina</label>
-						<p style="font-size: 15px; text-align: right; border-radius: 7px;">
-							<select class="custom-select" style=" font-size: 15px; padding-right: 5px; background-color: #E7E393; border: 0px; color: #854d27;" name="propina" id="propina">
-							  <option value="diez">10%</option>
-							  <option value="quince">15%</option>
-							  <option value="veinte">20%</option>
-							  <option value="nada">No dejar propina</option>
-							</select>
-						</p>
-						<p>
-						Total por pagar
-						</p>
-						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
-						<small style="color: #854D27;">$98.89</small></p>
-						
-						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</button>
-						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-credit-card"></i>&nbsp;Tarjeta de crédito / débito</button>
-						<br>
-					</div>
+				  <img src=".vs/images/fav_tenders.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
+				  <div class="card-body">
+				    <p style="font-family: Epilogue; color: #854D27;">NombreProducto <small class="text-muted">(250g)</small></p>
+				    <p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				    tempor incididunt ut labore et dolore magna aliqua.
+				    </p>
+				    <div class="row">
+				    	<div class="col-6">
+				    	<button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
+					    </div>
+					    <div class="col-6">
+					    	<button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal2" style="background-color: #854D27; color: #E7E393"><i class="fas fa-vr-cardboard" style="color: #E7E393"></i> AR</a>
+					    </div>
+				    </div>
+				  </div>
 				</div>
 			</div>
 		</div>
