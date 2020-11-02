@@ -20,9 +20,7 @@
 				<div class="navbar navbar-expand-lg navbar-dark" style="background-color: #854D27; border-radius: 999px;">
 				  <a class="navbar-brand" href="index.php" style="font-family: Epilogue; color: white;"><font color="#F4C95D">EatIn |</font> <small style="color: #E7E393;">Mireles Wings</small></a>
 				  <span class="navbar-text">
-				      <a href="cart.php" style="color: #E7E393;"><i class="fa fa-shopping-cart"></i></a>
-				  </span>
-				  <span class="navbar-text">
+				  	  <a href="cart.php" style="color: #E7E393;"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;</a>
 				      <a href="pago.php" style="color: #E7E393;"><i class="fa fa-money"></i></a>
 				  </span>
 				</div>
@@ -97,10 +95,10 @@
 				</div>
 			</div>
 			<div class="col-4 categorias">
-				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
+				<div class="card" style="border: none; border-radius: 7px; background-color: #E7E393;">
 				  <img src="https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-9/64220199_2274087352807975_885873086820253696_n.jpg?_nc_cat=104&ccb=2&_nc_sid=8bfeb9&_nc_eui2=AeEAbcZjwOdHHVxbSfQ3WOoXBKGXBGE4qcwEoZcEYTipzHac1LLKNRzfKFOTgE1Qzww&_nc_ohc=pm_QmC10HMoAX9Lu5En&_nc_ht=scontent.fmty1-1.fna&oh=e5a97610a661d6778c1384361500163d&oe=5FC4C033" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
-				    <center>Bebidas xk se hace chikito? :(</center>
+				    <center>Bebidas</center>
 				  </div>
 				</div>
 			</div>

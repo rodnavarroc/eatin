@@ -18,11 +18,9 @@
 			<div class="col">
 				<br>
 				<div class="navbar navbar-expand-lg navbar-dark" style="background-color: #854D27; border-radius: 999px;">
-				  <a class="navbar-brand" href="index.php" style="font-family: Epilogue; color: white;"><font color="#F4C95D">EatIn |</font> <small style="color: #E7E393;">Las Alitas Santa Catarina</small></a>
+				  <a class="navbar-brand" href="index.php" style="font-family: Epilogue; color: white;"><font color="#F4C95D">EatIn |</font> <small style="color: #E7E393;">Mireles Wings</small></a>
 				  <span class="navbar-text">
-				      <a href="cart.php" style="color: #E7E393;"><i class="fa fa-shopping-cart"></i></a>
-				  </span>
-					<span class="navbar-text">
+				  	  <a href="cart.php" style="color: #E7E393;"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;</a>
 				      <a href="pago.php" style="color: #E7E393;"><i class="fa fa-money"></i></a>
 				  </span>
 				</div>
@@ -68,8 +66,8 @@
 						<p style="font-size: 15px; text-align: right; background-color: #E7E393; padding-right: 7px; border-radius: 7px;">
 						<small style="color: #854D27;  padding-right: 17px;">$89.90</small></p>
 						<label for="propina">Propina</label>
-						<p style="font-size: 15px; text-align: right; background-color: #E7E393; padding-right: 7px; border-radius: 7px;">
-							<select style="text-align-last:right; font-size: 15px; padding-right: 5px; background-color: #E7E393; border-radius: 7px; color: #854d27;" name="propina" id="propina">
+						<p style="font-size: 15px; text-align: right; border-radius: 7px;">
+							<select class="custom-select" style=" font-size: 15px; padding-right: 5px; background-color: #E7E393; border: 0px; color: #854d27;" name="propina" id="propina">
 							  <option value="diez">10%</option>
 							  <option value="quince">15%</option>
 							  <option value="veinte">20%</option>
