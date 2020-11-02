@@ -1,12 +1,11 @@
 <?php
 
-if(!isset($_GET['s'])) header("Location: index.php");
+if(!isset($_GET['id'])) header("Location: index.php");
 
 $conexion=mysqli_connect("localhost", "root", "", "eatin");
 $mysqli = new mysqli("localhost", "root", "", "eatin");
 
-$sect = $_GET['s'];
-$seccion = ucfirst($_GET['s']);
+$plat = $_GET['id'];
 
 ?>
 
@@ -49,36 +48,38 @@ $seccion = ucfirst($_GET['s']);
 	  </a>
 	</div>
 	<!--llamar al mesero-->
+
+	<?php
+    $sql="SELECT * FROM menu WHERE idplatillo = '$plat'";
+    $result=mysqli_query($conexion,$sql);
+    $mostrar=mysqli_fetch_array($result); 
+    ?>
 	
 	<div class="container"  style="padding-top: 100px;">
-		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;">&nbsp;<i class="fas fa-ellipsis-v"></i>&nbsp;&nbsp;<?php echo $seccion;?></p>
+		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;">&nbsp;<i class="fas fa-plus"></i>&nbsp;&nbsp;<?php echo $mostrar['nombre_platillo'];?></p>
 
-		<?php
-        $sql="SELECT * FROM menu WHERE categoria = '$sect'";
-        $result=mysqli_query($conexion,$sql);
-        while($mostrar=mysqli_fetch_array($result)){ ?> 
-		<div class="row">
-			<div class="col-12">
-				<div class="card" style="border: none; border-radius: 7px;">
-				  <div class="card-body">
-				    <p style="font-family: Epilogue; color: #854D27;"><?php echo $mostrar['nombre_platillo'];?>&nbsp;<span class="text-muted"> $<?php echo $mostrar['costo'];?></span></p>
-				    <p style="font-size: 14px;">
-				    	<?php echo $mostrar['descripcion'];?>
-				    </p>
-				    <div class="row">
-				    	<div class="col-6">
-				    	<a href="agregar.php?id=<?php echo $mostrar['idplatillo'];?>" class="btn btn-block" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
-					    </div>
-					    <div class="col-6">
-					    	<a href="" type="button" class="btn btn-block" style="background-color: #854D27; color: #E7E393"><i class="fas fa-vr-cardboard" style="color: #E7E393"></i> AR</a>
-					    </div>
-				    </div>
-				  </div>
-				</div>
-			</div>
+	<div class="card">
+		<div class="card-body">
+			<form>
+	        	<div class="form-group">
+			    <label>Salsa</label>
+			    <select class="form-control">
+			    	<option selected="true">Buffalo</option>
+			    	<option>Mango Habanero</option>
+			    	<option>Lemon Pepper</option>
+			    </select>
+			  	</div>
+
+			  	<div class="form-group">
+			  		<label>Comentarios</label>
+			    	<input type="numeric" placeholder="Instrucciones para el chef" class="form-control">
+			  	</div>
+
+			  	<input type="submit" name="enviar" class="btn btn-dark btn-block" value="Agregar" style="background-color: #2E1F27; color: #DD7230;">
+	        </form>
 		</div>
-		<br>
-		<?php } ?>
+	</div>
+		
 	</div>
 	<br>
 

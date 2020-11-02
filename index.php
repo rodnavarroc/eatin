@@ -76,7 +76,7 @@ $_SESSION['mesa'] = $mesa;
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Alitas</center>
 				  </div>
-				</div>
+				</div></a>
 			</div>
 			<div class="col-4 categorias">
 				<a class="section_link" href="seccion.php?s=tenders"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
@@ -84,15 +84,15 @@ $_SESSION['mesa'] = $mesa;
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Tenders</center>
 				  </div>
-				</div>
+				</div></a>
 			</div>
 			<div class="col-4 categorias">
 				<a class="section_link" href="seccion.php?s=complementos"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
 				  <img src=".vs/images/papas.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
-				    <center>Complementos</center>
+				    <center>Entradas</center>
 				  </div>
-				</div>
+				</div></a>
 			</div>
 			<div class="col-4 categorias">
 				<a class="section_link" href="seccion.php?s=otros"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
@@ -100,15 +100,15 @@ $_SESSION['mesa'] = $mesa;
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Otros Platillos</center>
 				  </div>
-				</div>
+				</div></a>
 			</div>
 			<div class="col-4 categorias">
-				<a class="section_link" href="seccion.php?s=boneless"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393;">
+				<a class="section_link" href="seccion.php?s=bebidas"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393;">
 				  <img src=".vs/images/bebidas.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
 				    <center>Bebidas</center>
 				  </div>
-				</div>
+				</div></a>
 			</div>
 		</div>
 		<hr>
@@ -120,16 +120,16 @@ $_SESSION['mesa'] = $mesa;
 				<div class="card" style="border: none; border-radius: 7px;">
 				  <img src=".vs/images/fav_boneless.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div class="card-body">
-				    <p style="font-family: Epilogue; color: #854D27;">Boneless Personales <small class="text-muted">(250g)</small></p>
+				    <p style="font-family: Epilogue; color: #854D27;">Boneless Personales &nbsp;<span class="text-muted"> $80</span></p>
 				    <p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				    tempor incididunt ut labore et dolore magna aliqua.
 				    </p>
 				    <div class="row">
 				    	<div class="col-6">
-				    	<button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
+				    	<a href="agregar.php?id=13" class="btn btn-block" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
 					    </div>
 					    <div class="col-6">
-					    	<button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal2" style="background-color: #854D27; color: #E7E393"><i class="fas fa-vr-cardboard" style="color: #E7E393"></i> AR</a>
+					    <a href="" type="button" class="btn btn-block" style="background-color: #854D27; color: #E7E393"><i class="fas fa-vr-cardboard" style="color: #E7E393"></i> AR</a>
 					    </div>
 				    </div>
 				  </div>
@@ -142,13 +142,13 @@ $_SESSION['mesa'] = $mesa;
 				<div class="card" style="border: none; border-radius: 7px;">
 				  <img src=".vs/images/fav_alitas.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div class="card-body">
-				    <p style="font-family: Epilogue; color: #854D27;">Alitas Personales <small class="text-muted">(250g)</small></p>
+				    <p style="font-family: Epilogue; color: #854D27;">Alitas Personales &nbsp;<span class="text-muted"> $80</span></p>
 				    <p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				    tempor incididunt ut labore et dolore magna aliqua.
 				    </p>
 				    <div class="row">
 				    	<div class="col-12">
-				    	<button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
+				    	<a href="agregar.php?id=16" class="btn btn-block" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
 					    </div>
 				    </div>
 				  </div>
@@ -161,13 +161,13 @@ $_SESSION['mesa'] = $mesa;
 				<div class="card" style="border: none; border-radius: 7px;">
 				  <img src=".vs/images/fav_tenders.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div class="card-body">
-				    <p style="font-family: Epilogue; color: #854D27;">Tenders Personales <small class="text-muted">(250g)</small></p>
+				    <p style="font-family: Epilogue; color: #854D27;">Tenders Personales&nbsp;<span class="text-muted"> $80</span></small></p>
 				    <p style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				    tempor incididunt ut labore et dolore magna aliqua.
 				    </p>
 				    <div class="row">
 				    	<div class="col-12">
-				    	<button type="button" class="btn btn-block" data-toggle="modal" data-target="#exampleModal" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
+				    	<a href="agregar.php?id=10" class="btn btn-block" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
 					    </div>
 				    </div>
 				  </div>
@@ -176,65 +176,8 @@ $_SESSION['mesa'] = $mesa;
 		</div>
 	</div>
 	<br>
-
-
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Agregar platillo</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        <form>
-	        	<div class="form-group">
-			    <label>Salsa</label>
-			    <select class="form-control">
-			    	<option selected="true">Buffalo</option>
-			    	<option>Mango Habanero</option>
-			    	<option>Lemon Pepper</option>
-			    </select>
-			  	</div>
-
-			  	<div class="form-group">
-			  		<label>Comentarios</label>
-			    	<input type="numeric" placeholder="Instrucciones para el chef" class="form-control">
-			  	</div>
-	        </form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn" style="background-color: #E7E393; color: #DD7230;" data-dismiss="modal">Cerrar</button>
-	        <button type="button" class="btn" style="background-color: #2E1F27; color: #DD7230;">Agregar</button>
-	      </div>
-	    </div>
-	  </div>
 	</div>
-
-	<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Vista AR</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        <br>
-	        <p>Apunta tu cámara hacia la mesa para ver el platillo en Realidad Aumentada.</p>
-	        <br>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn" style="background-color: #E7E393; color: #DD7230;" data-dismiss="modal">Cerrar</button>
-	        <a href="ar.php"><button type="button" class="btn" style="background-color: #2E1F27; color: #DD7230;">Entendido</button></a>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-
-
+	
 </body>
 
 <style type="text/css">
