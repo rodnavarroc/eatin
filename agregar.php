@@ -61,19 +61,42 @@ $plat = $_GET['id'];
 	<div class="card">
 		<div class="card-body">
 			<form>
+	        	<?php
+				if($mostrar['categoria'] == 'boneless' || $mostrar['categoria'] == 'tenders' || $mostrar['categoria'] == 'alitas' || $mostrar['categoria'] == 'hamburguesas') {
+	        	?>
 	        	<div class="form-group">
 			    <label>Salsa</label>
 			    <select class="form-control">
-			    	<option selected="true">Buffalo</option>
-			    	<option>Mango Habanero</option>
-			    	<option>Lemon Pepper</option>
+			    	<?php
+			        $sql="SELECT * FROM extras WHERE tipo_extra = 'salsa'";
+			        $result=mysqli_query($conexion,$sql);
+			        while($mostrar=mysqli_fetch_array($result)){ ?> 
+			    	<option><?php echo $mostrar['nombre_extra']." - $".$mostrar['costo_extra'];?></option>
+			    	<?php } ?>	
 			    </select>
 			  	</div>
 
 			  	<div class="form-group">
+			    <label>Papas fritas</label>
+			    <select class="form-control">
+			    	<?php
+			        $sql="SELECT * FROM extras WHERE tipo_extra = 'papas'";
+			        $result=mysqli_query($conexion,$sql);
+			        while($mostrar=mysqli_fetch_array($result)){ ?> 
+			    	<option><?php echo $mostrar['nombre_extra']." - $".$mostrar['costo_extra'];?></option>
+			    	<?php } ?>	
+			    </select>
+			  	</div>
+			  	<?php } ?>
+
+			  	<?php
+			  	if($mostrar['categoria'] != 'bebidas' && $mostrar['categoria'] != 'complementos' && $mostrar['categoria'] != 'otros') {
+			  	?>
+			  	<div class="form-group">
 			  		<label>Comentarios</label>
 			    	<input type="numeric" placeholder="Instrucciones para el chef" class="form-control">
 			  	</div>
+	            <?php } ?>
 
 			  	<input type="submit" name="enviar" class="btn btn-dark btn-block" value="Agregar" style="background-color: #2E1F27; color: #DD7230;">
 	        </form>
