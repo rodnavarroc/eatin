@@ -60,30 +60,30 @@ $plat = $_GET['id'];
 
 	<div class="card">
 		<div class="card-body">
-			<form>
+			<form method="post" action="scripts/agregar_carrito.php?id=<?php echo $plat?>">
 	        	<?php
 				if($mostrar['categoria'] == 'boneless' || $mostrar['categoria'] == 'tenders' || $mostrar['categoria'] == 'alitas' || $mostrar['categoria'] == 'hamburguesas') {
 	        	?>
 	        	<div class="form-group">
 			    <label>Salsa</label>
-			    <select class="form-control">
+			    <select class="form-control" name="salsa">
 			    	<?php
 			        $sql="SELECT * FROM extras WHERE tipo_extra = 'salsa'";
 			        $result=mysqli_query($conexion,$sql);
 			        while($mostrar=mysqli_fetch_array($result)){ ?> 
-			    	<option><?php echo $mostrar['nombre_extra']." - $".$mostrar['costo_extra'];?></option>
+			    	<option value="<?php echo $mostrar['idextra']?>"><?php echo $mostrar['nombre_extra']." - $".$mostrar['costo_extra'];?></option>
 			    	<?php } ?>	
 			    </select>
 			  	</div>
 
 			  	<div class="form-group">
 			    <label>Papas fritas</label>
-			    <select class="form-control">
+			    <select class="form-control" name="papas">
 			    	<?php
 			        $sql="SELECT * FROM extras WHERE tipo_extra = 'papas'";
 			        $result=mysqli_query($conexion,$sql);
 			        while($mostrar=mysqli_fetch_array($result)){ ?> 
-			    	<option><?php echo $mostrar['nombre_extra']." - $".$mostrar['costo_extra'];?></option>
+			    	<option value="<?php echo $mostrar['idextra']?>"><?php echo $mostrar['nombre_extra']." - $".$mostrar['costo_extra'];?></option>
 			    	<?php } ?>	
 			    </select>
 			  	</div>
@@ -94,7 +94,7 @@ $plat = $_GET['id'];
 			  	?>
 			  	<div class="form-group">
 			  		<label>Comentarios</label>
-			    	<input type="numeric" placeholder="Instrucciones para el chef" class="form-control">
+			    	<input type="text" placeholder="Instrucciones para el chef" class="form-control" name="comentarios_extra">
 			  	</div>
 	            <?php } ?>
 

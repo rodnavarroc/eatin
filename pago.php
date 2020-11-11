@@ -1,3 +1,13 @@
+<?php
+
+$conexion=mysqli_connect("localhost", "root", "", "eatin");
+$mysqli = new mysqli("localhost", "root", "", "eatin");
+$costo_total = 0;
+
+session_start(); 
+if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Location: index.php");
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,26 +49,75 @@
 	<!--llamar al mesero-->
 	
 	<div class="container"  style="padding-top: 100px;">
-		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-money"></i>&nbsp;Su cuenta</p>
+		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-money"></i>&nbsp;Tu cuenta</p>
 
+		<?php 
+		for ($i=0; $i <= max(array_keys($_SESSION['carrito'])); $i++) {
+		
+		$plat = $_SESSION['carrito'][$i]['idPlatillo'];
+		$sql="SELECT * FROM menu WHERE idplatillo = '$plat'";
+    	$result=mysqli_query($conexion,$sql);
+    	$mostrar=mysqli_fetch_array($result);
+    	$costo = 0;
+		?>
 		<div class="row">
 			<div class="col-12">
 				<div class="card" style="border: none; border-radius: 7px;">
 					<div class="col-12">
 						<br>
-						<p>
-						Boneless Personales<br>
+						
+						<?php echo $mostrar['nombre_platillo']; $costo += $mostrar['costo']; ?><br>
 						<small class="text-muted">
-						+ Salsa Buffalo<br>
-						+ Papas con queso y tocino
+						<?php 
+						if($_SESSION['carrito'][$i]['extra_salsa'] != '0')
+						{
+							$extra = $_SESSION['carrito'][$i]['extra_salsa'];
+							$sql2="SELECT * FROM extras WHERE idextra = '$extra'";
+					    	$resultx=mysqli_query($conexion,$sql2);
+					    	$mostrarx=mysqli_fetch_array($resultx); 
+
+					    	$costo += $mostrarx['costo_extra'];
+
+					    	echo("<p>+ Salsa: ".$mostrarx['nombre_extra']);
+						}
+						?>
+						
+						<?php 
+						if($_SESSION['carrito'][$i]['extra_papas'] != '0')
+						{
+							$extra = $_SESSION['carrito'][$i]['extra_papas'];
+							$sql2="SELECT * FROM extras WHERE idextra = '$extra'";
+					    	$resultx=mysqli_query($conexion,$sql2);
+					    	$mostrarx=mysqli_fetch_array($resultx); 
+
+					    	$costo += $mostrarx['costo_extra'];
+
+					    	echo("<br>+ Papas: ".$mostrarx['nombre_extra']);
+						}
+						?>
+						
+						<?php 
+						if($_SESSION['carrito'][$i]['comentarios'] != '')
+						{
+							echo("<br>+ Comentarios: ".$_SESSION['carrito'][$i]['comentarios']."</p>");
+						}
+						else
+						{
+							echo("<br>");
+						}
+						?>
+
 						</small>
-						</p>
 						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
-						<small style="color: #854D27;">$89.90</small></p>
+						<small style="color: #854D27;">
+							<?php echo("$".$costo); $costo_total += $costo; ?><br>
+						</small></p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<br>
+		<?php } ?>
 		
 		<hr>
 		<div class="row">
@@ -66,23 +125,25 @@
 				<div class="card" style="border: none; border-radius: 7px; background-color: #854D27; color: #E7E393">
 					<div class="col-12">
 						<br>
-						<label>Consumo</label>
-						<p style="font-size: 15px; text-align: right; background-color: #E7E393; padding-right: 7px; border-radius: 7px;">
-						<small style="color: #854D27;  padding-right: 17px;">$89.90</small></p>
-						<label for="propina">Propina</label>
+						<label>Consumo Total</label>
+						<p style="text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
+						<font style="color: #854D27;">$<?php echo $costo_total; ?></font></p>
+						<label for="propina" style="color: #E7E393;">Propina</label>
 						<p style="font-size: 15px; text-align: right; border-radius: 7px;">
 							<select class="custom-select" style=" font-size: 15px; padding-right: 5px; background-color: #E7E393; border: 0px; color: #854d27;" name="propina" id="propina">
-							  <option value="diez">10%</option>
-							  <option value="quince">15%</option>
-							  <option value="veinte">20%</option>
-							  <option value="nada">No dejar propina</option>
+						      <option value="0">No dejar propina</option>
+							  <option value="5">5%</option>
+							  <option value="10">10%</option>
+							  <option value="15">15%</option>
+							  <option value="20">20%</option>
 							</select>
 						</p>
-						<p>
+						<p style="color: #E7E393;">
 						Total por pagar
 						</p>
-						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
-						<small style="color: #854D27;">$98.89</small></p>
+						<p style="font-size: 18px; text-align: center; background-color: #E7E393; border-radius: 7px;">
+						<font style="color: #854D27;">$<?php echo $costo_total." MXN"; ?></font></p>
+						
 						
 						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</button>
 						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-credit-card"></i>&nbsp;Tarjeta de crédito / débito</button>
@@ -121,6 +182,20 @@
 	  padding: 3% 5%;
 	  text-decoration: none;
 	  font-size: 17px;
+	}
+
+	.quitar_btn
+	{
+		display: block;
+		text-decoration: none;
+		color: #854D27;
+	}
+
+	.quitar_btn:hover
+	{
+		color: #854D27;
+		text-decoration: none;
+		display: block;
 	}
 </style>
 
