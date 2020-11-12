@@ -53,6 +53,8 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 
 		<?php 
 		for ($i=0; $i <= max(array_keys($_SESSION['carrito'])); $i++) {
+
+			if(!isset($_SESSION['carrito'][$i])) $i++;
 		
 		$plat = $_SESSION['carrito'][$i]['idPlatillo'];
 		$sql="SELECT * FROM menu WHERE idplatillo = '$plat'";

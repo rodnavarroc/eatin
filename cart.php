@@ -54,6 +54,8 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 		<?php 
 		for ($i=0; $i <= max(array_keys($_SESSION['carrito'])); $i++) {
 		
+			if(!isset($_SESSION['carrito'][$i])) $i++;
+
 		$plat = $_SESSION['carrito'][$i]['idPlatillo'];
 		$sql="SELECT * FROM menu WHERE idplatillo = '$plat'";
     	$result=mysqli_query($conexion,$sql);
@@ -136,8 +138,8 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 		
 		<div class="row">
 			<div class="col-12">
-				<button type="button" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;">
-				<i class="fas fa-concierge-bell"></i>&nbsp;Ordenar</button>
+				<a href="scripts/insertar_orden.php?costo=<?php echo($costo_total);?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"> <!-- type="button" -->
+				<i class="fas fa-concierge-bell"></i>&nbsp;Ordenar</a>
 				<hr>
 				<a href="scripts/vaciar_carrito.php" class="btn btn-block" style="background-color: #E7E393; color: #854D27;"><i class="fas fa-trash-alt"></i>&nbsp; Vaciar carrito</a>
 				<br><br>
@@ -146,7 +148,7 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 
 	</div>
 	<br>
-
+	<div style ="color: black;"> <?php print_r($_SESSION['carrito']); ?> </div>
 </body>
 
 <style type="text/css">
