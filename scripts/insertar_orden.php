@@ -24,11 +24,7 @@ $sql1 = "INSERT INTO pedidos (numero_mesa, pedido, total, pagado, estatus, fecha
 
 ### son 4 estados de "status" En Cola, En Preparacion, Listo, Entregado.
 
-if (mysqli_query($conexion, $sql1)) {
-    echo "New record created successfully";
-  } else {
-    echo "Error: " . $sql1 . "<br>" . mysqli_error($conexion);
-  }
+mysqli_query($conexion, $sql1);
 
 mysqli_close($conexion);
 header("Location: ../pago.php");

@@ -148,7 +148,6 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 
 	</div>
 	<br>
-	<div style ="color: black;"> <?php print_r($_SESSION['carrito']); ?> </div>
 </body>
 
 <style type="text/css">
