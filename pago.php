@@ -132,7 +132,7 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 						<font style="color: #854D27;">$<?php echo $costo_total; ?></font></p>
 						<label for="propina" style="color: #E7E393;">Propina</label>
 						<p style="font-size: 15px; text-align: right; border-radius: 7px;">
-							<select class="custom-select" style=" font-size: 15px; padding-right: 5px; background-color: #E7E393; border: 0px; color: #854d27;" name="propina" id="propina">
+							<select class="custom-select" style=" font-size: 15px; padding-right: 5px; background-color: #E7E393; border: 0px; color: #854d27;" name="propina" id="propina" onchange="myfunction()">
 						      <option value="0">No dejar propina</option>
 							  <option value="5">5%</option>
 							  <option value="10">10%</option>
@@ -140,11 +140,22 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 							  <option value="20">20%</option>
 							</select>
 						</p>
+						<!-- -->
+						<script type= "text/javascript">
+						 function myfunction(){
+							let propina = document.getElementById('propina').value;
+							console.log(propina);
+							let costoTotal = <?php echo $costo_total?>;
+							let totalFinal = costoTotal+((costoTotal*propina)/100);
+							console.log(totalFinal);
+							$("#totalFinal").text("$ "+totalFinal+" MXN");
+						 }
+						</script>
 						<p style="color: #E7E393;">
 						Total por pagar
 						</p>
-						<p style="font-size: 18px; text-align: center; background-color: #E7E393; border-radius: 7px;">
-						<font style="color: #854D27;">$<?php echo $costo_total." MXN"; ?></font></p>
+						<p id="pagoFinal" style="font-size: 18px; text-align: center; background-color: #E7E393; border-radius: 7px;">
+						<font id="totalFinal" style="color: #854D27;">$<?php echo $costo_total." MXN"; ?></font></p>
 						
 						
 						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</button>
