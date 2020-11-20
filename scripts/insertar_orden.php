@@ -34,9 +34,11 @@ if (!mysqli_query($conexion, "SET a=1")) {
 $mostrar=mysqli_fetch_array($resultado);
 print_r($mostrar);
 $idpedido=$mostrar['idpedido'];
+$_SESSION['idpedido'] = $idpedido;
+unset($_SESSION['carrito']);
 echo($idpedido);
 
 ###&idPedido=<?php echo($_GET['idpedido']);? >
 mysqli_close($conexion);
-header("Location: ../pago.php?idpedido=".$idpedido);
+header("Location: ../pago.php");
 ?>
