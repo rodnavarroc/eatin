@@ -7,6 +7,12 @@ $costo_total = 0;
 session_start(); 
 if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Location: index.php");
 
+if(isset($_GET['idpedido'])){
+    $idpedido=$_GET['idpedido'];
+}else{
+    //user was not passed, so print a error or just exit(0);
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -140,7 +146,7 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 							  <option value="20">20%</option>
 							</select>
 						</p>
-						<!-- -->
+						<!-- SCRIPT DE JS PARA OBTENER EL VALOR Y MODIFICAR AUTOMATICAMENTE EN EL HTML-->
 						<script type= "text/javascript">
 						 function myfunction(){
 							let propina = document.getElementById('propina').value;
@@ -148,7 +154,7 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 							let costoTotal = <?php echo $costo_total?>;
 							let totalFinal = costoTotal+((costoTotal*propina)/100);
 							console.log(totalFinal);
-							$("#totalFinal").text("$ "+totalFinal+" MXN");
+							$("#totalFinal").text("$ "+totalFinal+" MXN");//despues del $ es el id del lugar en donde se modificará el texto correspondiente (.text)
 						 }
 						</script>
 						<p style="color: #E7E393;">
@@ -157,9 +163,9 @@ if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Lo
 						<p id="pagoFinal" style="font-size: 18px; text-align: center; background-color: #E7E393; border-radius: 7px;">
 						<font id="totalFinal" style="color: #854D27;">$<?php echo $costo_total." MXN"; ?></font></p>
 						
-						
-						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</button>
-						<button type="button" class="btn btn-block disabled" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-credit-card"></i>&nbsp;Tarjeta de crédito / débito</button>
+						<!-- POR ALGUNA RAZON, EL BOTON DE LA TARJETA FUNCIONA SOLO DANDO CLICK EN EL BORDE SUPERIOR -->
+						<a href="scripts/forma_pago.php?metodoPago='Efectivo'&idpedido=<?php echo($idpedido);?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</a>
+						<a href="scripts/forma_pago.php?metodoPago='Tarjeta'&idpedido=<?php echo($idpedido);?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-credit-card"></i>&nbsp;Tarjeta de crédito / débito</a>
 						<br>
 					</div>
 				</div>

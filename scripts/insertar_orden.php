@@ -25,7 +25,18 @@ $sql1 = "INSERT INTO pedidos (numero_mesa, pedido, total, pagado, estatus, fecha
 ### son 4 estados de "status" En Cola, En Preparacion, Listo, Entregado.
 
 mysqli_query($conexion, $sql1);
+######################################################################################################
+$sql2 = "SELECT idpedido FROM pedidos WHERE pedido = '$datos_sql' AND numero_mesa= '$mesa' AND fecha_hora= '$fecha_hora'";
+$resultado = mysqli_query($conexion, $sql2);
+if (!mysqli_query($conexion, "SET a=1")) {
+  printf("Errormessage: %s\n", mysqli_error($conexion));
+}
+$mostrar=mysqli_fetch_array($resultado);
+print_r($mostrar);
+$idpedido=$mostrar['idpedido'];
+echo($idpedido);
 
+###&idPedido=<?php echo($_GET['idpedido']);? >
 mysqli_close($conexion);
-header("Location: ../pago.php");
+header("Location: ../pago.php?idpedido=".$idpedido);
 ?>
