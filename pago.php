@@ -5,14 +5,6 @@ $mysqli = new mysqli("localhost", "root", "", "eatin");
 $costo_total = 0;
 
 session_start(); 
-if(!isset($_SESSION['carrito']) || !array_keys($_SESSION['carrito'])) header("Location: index.php");
-
-if(isset($_GET['idpedido'])){
-    $idpedido=$_GET['idpedido'];
-}else{
-    //user was not passed, so print a error or just exit(0);
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,17 +48,23 @@ if(isset($_GET['idpedido'])){
 	
 	<div class="container"  style="padding-top: 100px;">
 		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-money"></i>&nbsp;Tu cuenta</p>
-
-		<?php 
-		for ($i=0; $i <= max(array_keys($_SESSION['carrito'])); $i++) {
-
-			if(!isset($_SESSION['carrito'][$i])) $i++;
 		
-		$plat = $_SESSION['carrito'][$i]['idPlatillo'];
-		$sql="SELECT * FROM menu WHERE idplatillo = '$plat'";
-    	$result=mysqli_query($conexion,$sql);
-    	$mostrar=mysqli_fetch_array($result);
-    	$costo = 0;
+		<?php 
+		$idpedido=$_SESSION['idpedido'];
+		echo("<p> PEDIDO ".$idpedido."</p>");
+		$sql="SELECT * FROM pedidos WHERE idpedido = '$idpedido'";
+		$result=mysqli_query($conexion,$sql);
+		$numero_filas = mysqli_num_rows($result);
+		$mostrar1=mysqli_fetch_array($result);
+		$arrayunserialize1=unserialize($mostrar1['pedido']);
+
+		$longitud=count($arrayunserialize1);
+		##$countinternal = count($arrayunserialize1[0]);
+
+		for ($i=0; $i < $longitud; $i++) {
+		$idplatillo = $arrayunserialize1[$i]['idPlatillo'];
+		$idextra = $arrayunserialize1[$i]['extra_salsa'];
+		$idextra1 = $arrayunserialize1[$i]['extra_papas'];
 		?>
 		<div class="row">
 			<div class="col-12">
@@ -74,51 +72,32 @@ if(isset($_GET['idpedido'])){
 					<div class="col-12">
 						<br>
 						
-						<?php echo $mostrar['nombre_platillo']; $costo += $mostrar['costo']; ?><br>
+						<?php 
+								$sql2="SELECT * FROM menu WHERE idplatillo = '$idplatillo'";
+								$result2=mysqli_query($conexion,$sql2);
+								$mostrar2=mysqli_fetch_array($result2);
+								echo("<p>".$mostrar2['nombre_platillo']."</p>");
+						?>
 						<small class="text-muted">
-						<?php 
-						if($_SESSION['carrito'][$i]['extra_salsa'] != '0')
-						{
-							$extra = $_SESSION['carrito'][$i]['extra_salsa'];
-							$sql2="SELECT * FROM extras WHERE idextra = '$extra'";
-					    	$resultx=mysqli_query($conexion,$sql2);
-					    	$mostrarx=mysqli_fetch_array($resultx); 
-
-					    	$costo += $mostrarx['costo_extra'];
-
-					    	echo("<p>+ Salsa: ".$mostrarx['nombre_extra']);
-						}
+						<?php
+								if($mostrar2['categoria'] == 'tenders' || $mostrar2['categoria'] == 'boneless' || $mostrar2['categoria'] == 'alitas' || $mostrar2['categoria'] == 'hamburguesas')
+								{
+									$sql3="SELECT * FROM extras WHERE idextra = '$idextra'";
+									$result3=mysqli_query($conexion,$sql3);
+									$mostrar3=mysqli_fetch_array($result3);
+									echo("<p>+ Salsa: ".$mostrar3['nombre_extra']."<br>");
+									$sql4="SELECT * FROM extras WHERE idextra = '$idextra1'";
+									$result4=mysqli_query($conexion,$sql4);
+									$mostrar4=mysqli_fetch_array($result4);
+									echo("+ Papas: ".$mostrar4['nombre_extra']."<br>");
+									echo("+ Comentarios: ".$arrayunserialize1[$i]['comentarios']."</p>");
+									$costofinal=(intval($mostrar2['costo'])+intval($mostrar3['costo_extra'])+intval($mostrar4['costo_extra']));
+								}
 						?>
-						
-						<?php 
-						if($_SESSION['carrito'][$i]['extra_papas'] != '0')
-						{
-							$extra = $_SESSION['carrito'][$i]['extra_papas'];
-							$sql2="SELECT * FROM extras WHERE idextra = '$extra'";
-					    	$resultx=mysqli_query($conexion,$sql2);
-					    	$mostrarx=mysqli_fetch_array($resultx); 
-
-					    	$costo += $mostrarx['costo_extra'];
-
-					    	echo("<br>+ Papas: ".$mostrarx['nombre_extra']);
-						}
-						?>
-						
-						<?php 
-						if($_SESSION['carrito'][$i]['comentarios'] != '')
-						{
-							echo("<br>+ Comentarios: ".$_SESSION['carrito'][$i]['comentarios']."</p>");
-						}
-						else
-						{
-							echo("<br>");
-						}
-						?>
-
 						</small>
 						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
 						<small style="color: #854D27;">
-							<?php echo("$".$costo); $costo_total += $costo; ?><br>
+							<?php echo("$".$costofinal." MXN"); ?><br>
 						</small></p>
 					</div>
 				</div>
@@ -135,7 +114,7 @@ if(isset($_GET['idpedido'])){
 						<br>
 						<label>Consumo Total</label>
 						<p style="text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
-						<font style="color: #854D27;">$<?php echo $costo_total; ?></font></p>
+						<font style="color: #854D27;">$<?php echo $mostrar1['total']; ?></font></p>
 						<label for="propina" style="color: #E7E393;">Propina</label>
 						<p style="font-size: 15px; text-align: right; border-radius: 7px;">
 							<select class="custom-select" style=" font-size: 15px; padding-right: 5px; background-color: #E7E393; border: 0px; color: #854d27;" name="propina" id="propina" onchange="myfunction()">
@@ -151,7 +130,7 @@ if(isset($_GET['idpedido'])){
 						 function myfunction(){
 							let propina = document.getElementById('propina').value;
 							console.log(propina);
-							let costoTotal = <?php echo $costo_total?>;
+							let costoTotal = <?php echo $mostrar1['total']?>;
 							let totalFinal = costoTotal+((costoTotal*propina)/100);
 							console.log(totalFinal);
 							$("#totalFinal").text("$ "+totalFinal+" MXN");//despues del $ es el id del lugar en donde se modificará el texto correspondiente (.text)
@@ -161,7 +140,7 @@ if(isset($_GET['idpedido'])){
 						Total por pagar
 						</p>
 						<p id="pagoFinal" style="font-size: 18px; text-align: center; background-color: #E7E393; border-radius: 7px;">
-						<font id="totalFinal" style="color: #854D27;">$<?php echo $costo_total." MXN"; ?></font></p>
+						<font id="totalFinal" style="color: #854D27;">$<?php echo $mostrar1['total']." MXN"; ?></font></p>
 						
 						<!-- POR ALGUNA RAZON, EL BOTON DE LA TARJETA FUNCIONA SOLO DANDO CLICK EN EL BORDE SUPERIOR -->
 						<a href="scripts/forma_pago.php?metodoPago='Efectivo'&idpedido=<?php echo($idpedido);?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</a>
