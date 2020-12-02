@@ -5,6 +5,7 @@ $mysqli = new mysqli("localhost", "root", "", "eatin");
 $costo_total = 0;
 
 session_start(); 
+if(!isset($_SESSION['idpedido'])) header("Location: index.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,19 +81,21 @@ session_start();
 						?>
 						<small class="text-muted">
 						<?php
+								$sql3="SELECT * FROM extras WHERE idextra = '$idextra'";
+								$result3=mysqli_query($conexion,$sql3);
+								$mostrar3=mysqli_fetch_array($result3);
+
+								$sql4="SELECT * FROM extras WHERE idextra = '$idextra1'";
+								$result4=mysqli_query($conexion,$sql4);
+								$mostrar4=mysqli_fetch_array($result4);
 								if($mostrar2['categoria'] == 'tenders' || $mostrar2['categoria'] == 'boneless' || $mostrar2['categoria'] == 'alitas' || $mostrar2['categoria'] == 'hamburguesas')
 								{
-									$sql3="SELECT * FROM extras WHERE idextra = '$idextra'";
-									$result3=mysqli_query($conexion,$sql3);
-									$mostrar3=mysqli_fetch_array($result3);
 									echo("<p>+ Salsa: ".$mostrar3['nombre_extra']."<br>");
-									$sql4="SELECT * FROM extras WHERE idextra = '$idextra1'";
-									$result4=mysqli_query($conexion,$sql4);
-									$mostrar4=mysqli_fetch_array($result4);
 									echo("+ Papas: ".$mostrar4['nombre_extra']."<br>");
 									echo("+ Comentarios: ".$arrayunserialize1[$i]['comentarios']."</p>");
-									$costofinal=(intval($mostrar2['costo'])+intval($mostrar3['costo_extra'])+intval($mostrar4['costo_extra']));
+									
 								}
+								$costofinal=(intval($mostrar2['costo'])+intval($mostrar3['costo_extra'])+intval($mostrar4['costo_extra']));
 						?>
 						</small>
 						<p style="font-size: 18px; text-align: right; background-color: #E7E393; padding-right: 10px; border-radius: 7px;">
@@ -142,7 +145,6 @@ session_start();
 						<p id="pagoFinal" style="font-size: 18px; text-align: center; background-color: #E7E393; border-radius: 7px;">
 						<font id="totalFinal" style="color: #854D27;">$<?php echo $mostrar1['total']." MXN"; ?></font></p>
 						
-						<!-- POR ALGUNA RAZON, EL BOTON DE LA TARJETA FUNCIONA SOLO DANDO CLICK EN EL BORDE SUPERIOR -->
 						<a href="scripts/forma_pago.php?metodoPago='Efectivo'&idpedido=<?php echo($idpedido);?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-wallet"></i>&nbsp;Efectivo</a>
 						<a href="scripts/forma_pago.php?metodoPago='Tarjeta'&idpedido=<?php echo($idpedido);?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"><i class="fas fa-credit-card"></i>&nbsp;Tarjeta de crédito / débito</a>
 						<br>

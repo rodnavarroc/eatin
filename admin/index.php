@@ -5,7 +5,9 @@ $mysqli = new mysqli("localhost", "root", "", "eatin");
 $costo_total = 0;
 
 session_start(); 
-
+$page = $_SERVER['PHP_SELF'];
+$sec = "10";
+header("Refresh: $sec; url=$page");
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,11 +54,9 @@ session_start();
 		$sql="SELECT * FROM pedidos WHERE estatus != '3'";
 		$result=mysqli_query($conexion,$sql);
 		$numero_filas = mysqli_num_rows($result);
-		echo("<p> numero de filas: ".$numero_filas."</p>");
 		##$mostrar=mysqli_fetch_array($result);
 		
 		for ($i=0; $i < $numero_filas; $i++) {
-			echo($i)
 		?>
 		<div class="row">
 			<div class="col-12">
@@ -65,8 +65,15 @@ session_start();
 						<br>
 						
 						<?php while($mostrar=mysqli_fetch_array($result)){
+								$sentId = $mostrar['idpedido'];
+								$estatusActual = $mostrar['estatus'];
+								$nombreEstatus='';
+								if(intval($estatusActual)==0) $nombreEstatus='En cola';
+								if(intval($estatusActual)==1) $nombreEstatus='En preparación';
+								if(intval($estatusActual)==2) $nombreEstatus='Pedido listo';
+								if(intval($estatusActual)==3) $nombreEstatus='Pedido entregado';
 								echo ("Pedido ".$mostrar['idpedido']."<br>");
-								#echo ($mostrar['pedido']."<br>");
+								echo ("Estatus del pedido: ".$nombreEstatus."<br>");
 								$arrayunserialize1=unserialize($mostrar['pedido']);
 								$longitud=count($arrayunserialize1);
 								for ($j=0; $j < $longitud; $j++) 
@@ -100,6 +107,20 @@ session_start();
 					</div>
 				</div>
 			</div>
+		</div>
+		<br>
+		<!-- aqui van los botones para cambiar de estado del pedido jejejeje-->
+		
+		<div style="text-align:center;">
+		<?php if(intval($estatusActual)!=0){ ?>
+		<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=0&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-primary" style="background-color: #F4C95D; color: #854D27;"></i>&nbsp; Regresar </a>
+		<?php } ?>
+		<?php if(intval($estatusActual)!=2){ ?>
+		<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=1&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-primary" style="background-color: #F4C95D; color: #854D27; margin-left:7em;"></i>&nbsp; Avanzar </a>
+		<?php } ?>
+		<?php if(intval($estatusActual)==2){ ?>
+		<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=1&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-primary" style="background-color: #F4C95D; color: #854D27; margin-left:7em;"></i>&nbsp; Finalizar pedido </a>
+		<?php } ?>
 		</div>
 		<br>
 		<?php } ?>

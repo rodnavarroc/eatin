@@ -1,3 +1,12 @@
+<?php
+
+$conexion=mysqli_connect("localhost", "root", "", "eatin");
+$mysqli = new mysqli("localhost", "root", "", "eatin");
+
+session_start(); 
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +20,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Epilogue&family=Inter&family=News+Cycle&display=swap" rel="stylesheet"> 
 </head>
 <body style="font-family: Epilogue; background-color: #f2f2f2; color: #2E1F27;">
-
-	<!--menu-->
+	<!--menu -->
 	<div class="container fixed-top" style="background-color: transparent;">
 		<div class="row">
 			<div class="col">
@@ -29,7 +37,52 @@
 		<br>
 	</div>
 	<!--menu-->
-
+	<?php 
+	$nombreEstatus='';
+	$nombreEstatus1='';
+	if(!isset($_SESSION['idpedido'])){
+		$nombreEstatus='No hay pedidos para su mesa';
+		$nombreEstatus1='Por favor, vuelva a la página principal para ordenar.';
+		$mesa='';
+		$idpedido='';
+	}
+	else{
+		$mesa = $_SESSION['mesa'];
+		$idpedido = $_SESSION['idpedido'];
+		$sql="SELECT * FROM pedidos WHERE idpedido = '$idpedido'";
+		$result=mysqli_query($conexion,$sql);
+		$mostrar=mysqli_fetch_array($result);
+		$estatusActual = $mostrar['estatus'];
+		if(intval($estatusActual)==0) {
+			$nombreEstatus='Su pedido está en cola'; 
+			$nombreEstatus1='Está siendo revisado por el chef (:';
+			$page = $_SERVER['PHP_SELF'];
+			$sec = "10";
+			header("Refresh: $sec; url=$page");}
+		if(intval($estatusActual)==1) {
+			$nombreEstatus='Su pedido está en preparación'; 
+			$nombreEstatus1='¡Pronto estará en su mesa!';
+			$page = $_SERVER['PHP_SELF'];
+			$sec = "10";
+			header("Refresh: $sec; url=$page");
+		}
+		if(intval($estatusActual)==2) {
+			$nombreEstatus='Su pedido está listo'; 
+			$nombreEstatus1='¡En cualquier momentó llegará a su mesa!';
+			$page = $_SERVER['PHP_SELF'];
+			$sec = "10";
+			header("Refresh: $sec; url=$page");
+		}
+		if(intval($estatusActual)==3) {
+			$nombreEstatus='Su pedido ha sido entregado'; 
+			$nombreEstatus1='¡Buen provecho!';
+			$page = $_SERVER['PHP_SELF'];
+			$sec = "10";
+			unset($_SESSION['idpedido']);
+			header("Refresh: $sec; url=$page");
+		}
+	}
+	?>
 	<!--llamar al mesero-->
 	<div class="navbarx d-block d-sm-none p-2" id="myNavbar">
 	  <a class="nav-link" href="status.php" style="border-radius: 99px; background-color: #2E1F27; color: #DD7230; float: right; font-size: 20px;">
@@ -46,8 +99,8 @@
 					<div class="col-12">
 						<br>
 						<p>
-							<i class="fas fa-hourglass-half"></i>&nbsp;Estamos preparando sus alimentos...<br>
-							<small class="text-muted">¡Pronto estarán en su mesa!</small>
+							<i class="fas fa-hourglass-half"></i>&nbsp;<?php echo($nombreEstatus); ?><br>
+							<small class="text-muted"><?php echo($nombreEstatus1); ?></small>
 						</p>
 					</div>
 				</div>
@@ -60,8 +113,8 @@
 					<div class="col-12">
 						<br>
 						<center>
-							<p>Orden #139048
-							<br>Mesa 27</p>
+							<p>Orden #<?php echo($idpedido); ?>
+							<br>Mesa <?php echo($mesa); ?></p>
 						</center>
 					</div>
 				</div>
