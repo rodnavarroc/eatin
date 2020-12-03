@@ -4,7 +4,9 @@ $conexion=mysqli_connect("localhost", "root", "", "eatin");
 $mysqli = new mysqli("localhost", "root", "", "eatin");
 
 session_start(); 
-
+$page = $_SERVER['PHP_SELF'];
+$sec = "10";
+header("Refresh: $sec; url=$page");
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +57,7 @@ session_start();
 		$estatusActual = $mostrar['estatus'];
 		if(intval($estatusActual)==0) {
 			$nombreEstatus='Su pedido está en cola'; 
-			$nombreEstatus1='Está siendo revisado por el chef (:';
+			$nombreEstatus1='Entregado al chef';
 			$page = $_SERVER['PHP_SELF'];
 			$sec = "10";
 			header("Refresh: $sec; url=$page");}

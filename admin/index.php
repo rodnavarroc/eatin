@@ -38,14 +38,6 @@ header("Refresh: $sec; url=$page");
 		<br>
 	</div>
 	<!--menu-->
-
-	<!--llamar al mesero-->
-	<div class="navbarx d-block d-sm-none p-2" id="myNavbar">
-	  <a class="nav-link" href="status.php" style="border-radius: 99px; background-color: #2E1F27; color: #DD7230; float: right; font-size: 20px;">
-	  	<i class="fas fa-bell"></i>
-	  </a>
-	</div>
-	<!--llamar al mesero-->
 	
 	<div class="container"  style="padding-top: 100px;">
 		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-money"></i>&nbsp;Administrador</p>
@@ -68,16 +60,20 @@ header("Refresh: $sec; url=$page");
 								$sentId = $mostrar['idpedido'];
 								$estatusActual = $mostrar['estatus'];
 								$nombreEstatus='';
-								if(intval($estatusActual)==0) $nombreEstatus='En cola';
-								if(intval($estatusActual)==1) $nombreEstatus='En preparación';
-								if(intval($estatusActual)==2) $nombreEstatus='Pedido listo';
+								if(intval($estatusActual)==0) $nombreEstatus='<i class="fas fa-battery-empty"></i>&nbsp;En cola';
+								if(intval($estatusActual)==1) $nombreEstatus='<i class="fas fa-battery-half"></i>&nbsp;En preparación';
+								if(intval($estatusActual)==2) $nombreEstatus='<i class="fas fa-check"></i>&nbsp;Pedido listo';
 								if(intval($estatusActual)==3) $nombreEstatus='Pedido entregado';
-								echo ("Pedido ".$mostrar['idpedido']."<br>");
-								echo ("Estatus del pedido: ".$nombreEstatus."<br>");
+								echo("<p class='text-muted'>Pedido #".$mostrar['idpedido']." <span style='float: right; padding-right: 5px; color: black;'>".$nombreEstatus."</span></p>");
 								$arrayunserialize1=unserialize($mostrar['pedido']);
 								$longitud=count($arrayunserialize1);
 								for ($j=0; $j < $longitud; $j++) 
-								{
+								{	
+									?>
+									<div class="container">
+										<div class="row">
+											<div class="card" style="background-color: #f2f2f2; border: none; padding: 10px 15px; width: 100%;">
+									<?php
 									$idplatillo = $arrayunserialize1[$j]['idPlatillo'];
 									$idextra = $arrayunserialize1[$j]['extra_salsa'];
 									$idextra1 = $arrayunserialize1[$j]['extra_papas'];
@@ -98,8 +94,15 @@ header("Refresh: $sec; url=$page");
 									$result4=mysqli_query($conexion,$sql4);
 									$mostrar4=mysqli_fetch_array($result4);
 									echo("+ Papas: ".$mostrar4['nombre_extra']."<br>");
+									if($arrayunserialize1[$j]['comentarios'] != "") 
 									echo("+ Comentarios: ".$arrayunserialize1[$j]['comentarios']."</p>");
 									}
+									?>
+											</div>
+										</div>
+									</div>
+									<?php
+									if($j != $longitud-1) echo "<br>";
 								}
 						break;
 						} ?><br>
@@ -109,27 +112,25 @@ header("Refresh: $sec; url=$page");
 			</div>
 		</div>
 		<br>
-		<!-- aqui van los botones para cambiar de estado del pedido jejejeje-->
+		<!-- aqui van los botones para cambiar de estado del pedido-->
 		
-		<div style="text-align:center;">
-		<?php if(intval($estatusActual)!=0){ ?>
-		<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=0&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-primary" style="background-color: #F4C95D; color: #854D27;"></i>&nbsp; Regresar </a>
-		<?php } ?>
-		<?php if(intval($estatusActual)!=2){ ?>
-		<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=1&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-primary" style="background-color: #F4C95D; color: #854D27; margin-left:7em;"></i>&nbsp; Avanzar </a>
-		<?php } ?>
-		<?php if(intval($estatusActual)==2){ ?>
-		<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=1&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-primary" style="background-color: #F4C95D; color: #854D27; margin-left:7em;"></i>&nbsp; Finalizar pedido </a>
-		<?php } ?>
+		<div class="container">
+		<div class="row">
+			<?php if(intval($estatusActual)!=0){ ?>
+			<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=0&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"></i>&nbsp; Regresar</a>
+			<?php } ?>
+			<?php if(intval($estatusActual)!=2){ ?>
+			<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=1&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"></i>&nbsp;Avanzar</a>
+			<?php } ?>
+			<?php if(intval($estatusActual)==2){ ?>
+			<a href="../scripts/modificar_estatus.php?idModificar=<?php echo($sentId); ?>&estatus=1&estatusActual=<?php echo($estatusActual); ?>" class="btn btn-block" style="background-color: #F4C95D; color: #854D27;"></i>&nbsp;Entregado</a>
+			<?php } ?>
 		</div>
-		<br>
+		</div>
+		<hr><br>
 		<?php } ?>
-		
-		
 
 	</div>
-	<br>
-
 </body>
 
 <style type="text/css">

@@ -52,7 +52,7 @@ if(!isset($_SESSION['idpedido'])) header("Location: index.php");
 		
 		<?php 
 		$idpedido=$_SESSION['idpedido'];
-		echo("<p> PEDIDO ".$idpedido."</p>");
+		echo("<p class='text-muted' style='margin: 0'> Pedido #".$idpedido."</p>");
 		$sql="SELECT * FROM pedidos WHERE idpedido = '$idpedido'";
 		$result=mysqli_query($conexion,$sql);
 		$numero_filas = mysqli_num_rows($result);
@@ -106,7 +106,6 @@ if(!isset($_SESSION['idpedido'])) header("Location: index.php");
 				</div>
 			</div>
 		</div>
-		<br>
 		<?php } ?>
 		
 		<hr>
