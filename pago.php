@@ -50,8 +50,8 @@ if(!isset($_SESSION['idpedido'])) header("Location: index.php");
 	<div class="container"  style="padding-top: 100px;">
 		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fa fa-money"></i>&nbsp;Tu cuenta</p>
 		
-		<?php 
-		$idpedido=$_SESSION['idpedido'];
+		<?php
+		$idpedido = $_SESSION['idpedido'];
 		echo("<p class='text-muted' style='margin: 0'> Pedido #".$idpedido."</p>");
 		$sql="SELECT * FROM pedidos WHERE idpedido = '$idpedido'";
 		$result=mysqli_query($conexion,$sql);
