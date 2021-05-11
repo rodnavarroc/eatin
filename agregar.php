@@ -98,6 +98,36 @@ $plat = $_GET['id'];
 			  	</div>
 	            <?php } ?>
 
+				<?php
+			  	if($mostrar['categoria'] == 'bebidas' && $mostrar['nombre_platillo'] == 'Refresco') {
+			  	?>
+			  	<div class="form-group">
+			  		<label>Seleccione el refresco</label>
+			    	<select class="form-control" name="refresco">
+					<option value="Coca Cola">Coca Cola</option>
+					<option value="Pepsi">Pepsi</option>
+					<option value="Manzanita">Manzanita</option>
+					<option value="Mirinda">Mirinda</option>
+					<option value="Seven Up">Seven Up</option>
+					<option value="Sprite">Sprite</option>
+					<option value="Fresca">Fresca</option>
+					</select>
+			  	</div>
+	            <?php } ?>
+
+				<?php
+			  	if($mostrar['categoria'] == 'bebidas' && $mostrar['nombre_platillo'] == 'Agua de Frutas') {
+			  	?>
+			  	<div class="form-group">
+			  		<label>Seleccione el sabor</label>
+			    	<select class="form-control" name="refresco">
+					<option value="Limon">Limon</option>
+					<option value="Jamaica">Jamaica</option>
+					<option value="Orchata">Orchata</option>
+					</select>
+			  	</div>
+	            <?php } ?>
+
 			  	<input type="submit" name="enviar" class="btn btn-dark btn-block" value="Agregar" style="background-color: #2E1F27; color: #DD7230;">
 	        </form>
 		</div>

@@ -43,7 +43,7 @@ header("Refresh: $sec; url=$page");
 	$nombreEstatus='';
 	$nombreEstatus1='';
 	if(!isset($_SESSION['idpedido'])){
-		$nombreEstatus='No hay pedidos para su mesa';
+		$nombreEstatus='&nbsp;No hay pedidos para su mesa';
 		$nombreEstatus1='Por favor, vuelva a la página principal para ordenar.';
 		$mesa='';
 		$idpedido='';
@@ -56,27 +56,27 @@ header("Refresh: $sec; url=$page");
 		$mostrar=mysqli_fetch_array($result);
 		$estatusActual = $mostrar['estatus'];
 		if(intval($estatusActual)==0) {
-			$nombreEstatus='Su pedido está en cola'; 
+			$nombreEstatus='&nbsp;Su pedido está en cola'; 
 			$nombreEstatus1='Entregado al chef';
 			$page = $_SERVER['PHP_SELF'];
 			$sec = "10";
 			header("Refresh: $sec; url=$page");}
 		if(intval($estatusActual)==1) {
-			$nombreEstatus='Su pedido está en preparación'; 
+			$nombreEstatus='&nbsp;Su pedido está en preparación'; 
 			$nombreEstatus1='¡Pronto estará en su mesa!';
 			$page = $_SERVER['PHP_SELF'];
 			$sec = "10";
 			header("Refresh: $sec; url=$page");
 		}
 		if(intval($estatusActual)==2) {
-			$nombreEstatus='Su pedido está listo'; 
+			$nombreEstatus='&nbsp;Su pedido está listo'; 
 			$nombreEstatus1='¡En cualquier momentó llegará a su mesa!';
 			$page = $_SERVER['PHP_SELF'];
 			$sec = "10";
 			header("Refresh: $sec; url=$page");
 		}
 		if(intval($estatusActual)==3) {
-			$nombreEstatus='Su pedido ha sido entregado'; 
+			$nombreEstatus='&nbsp;Su pedido ha sido entregado'; 
 			$nombreEstatus1='¡Buen provecho!';
 			$page = $_SERVER['PHP_SELF'];
 			$sec = "10";
@@ -92,7 +92,7 @@ header("Refresh: $sec; url=$page");
 	  </a>
 	</div>
 	<!--llamar al mesero-->
-	
+
 	<div class="container" style="padding-top: 100px">
 		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;">&nbsp;<i class="fas fa-bell"></i>&nbsp; Estatus</p>
 		<div class="row">
@@ -109,6 +109,7 @@ header("Refresh: $sec; url=$page");
 				<br>
 			</div>
 		</div>
+		<?php if(isset($_SESSION['idpedido'])){ ?>
 		<div class="row">
 			<div class="col-12">
 				<div class="card" style="border: none; border-radius: 7px; background-color: #854D27; color: #E7E393">
@@ -122,6 +123,7 @@ header("Refresh: $sec; url=$page");
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 	</div>
 
 	</div>

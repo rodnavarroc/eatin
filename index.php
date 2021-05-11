@@ -98,7 +98,7 @@ $_SESSION['mesa'] = $mesa;
 				<a class="section_link" href="seccion.php?s=otros"><div class="card" style="border: none; border-radius: 7px; background-color: #E7E393">
 				  <img src=".vs/images/otros.jpg" class="rounded" style="height: 100%; width: 100%; object-fit: contain">
 				  <div style="font-size: 12px; padding: 10px 12px;">
-				    <center>Otros Platillos</center>
+				    <center>Otros</center>
 				  </div>
 				</div></a>
 			</div>

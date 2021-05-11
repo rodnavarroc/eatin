@@ -66,11 +66,8 @@ $seccion = ucfirst($_GET['s']);
 				    	<?php echo $mostrar['descripcion'];?>
 				    </p>
 				    <div class="row">
-				    	<div class="col-6">
+				    	<div class="col-12">
 				    	<a href="agregar.php?id=<?php echo $mostrar['idplatillo'];?>" class="btn btn-block" style="background-color: #E7E393; color: #854D27"><i class="fas fa-plus" style="color: #854D27"></i> Agregar</a>
-					    </div>
-					    <div class="col-6">
-					    	<a href="" type="button" class="btn btn-block" style="background-color: #854D27; color: #E7E393"><i class="fas fa-vr-cardboard" style="color: #E7E393"></i> AR</a>
 					    </div>
 				    </div>
 				  </div>
