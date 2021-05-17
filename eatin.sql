@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2020 a las 08:06:09
+-- Tiempo de generación: 17-05-2021 a las 19:47:29
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -69,27 +69,25 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`idplatillo`, `nombre_platillo`, `costo`, `descripcion`, `categoria`) VALUES
-(1, 'Agua', '15', 'Agua fresca natural', 'bebidas'),
-(2, 'Refresco', '15', 'Variedad de refrescos', 'bebidas'),
-(3, 'Agua de Frutas', '20', 'Agua de fruta natural', 'bebidas'),
+(1, 'Agua', '12', 'Agua fresca natural', 'bebidas'),
+(2, 'Refresco', '18', 'Variedad de refrescos', 'bebidas'),
+(3, 'Agua de Frutas', '25', 'Agua de fruta natural', 'bebidas'),
 (7, 'Hamburguesa Tender', '90', 'Hamburguresa de tender con lechuga, aderezo y cubierta en salsa', 'hamburguesas'),
-(8, 'Ensalada', '80', '', 'otros'),
+(8, 'Ensalada', '80', 'Ensalada tradicional con lechuga, pollo, tomate y aderezos', 'otros'),
 (9, 'Mireles Wings', '200', 'Incluye un poco de todo; boneless, alitas tenders y papas', 'otros'),
-(10, 'Tenders Personales', '75', 'Tiras de pollo crujientes cubiertos en salsa', 'tenders'),
-(11, 'Tenders Medio Kilo', '130', 'Tiras de pollo crujientes cubiertos en salsa', 'tenders'),
-(12, 'Tenders Kilo', '190', 'Tiras de pollo crujientes cubiertos en salsa', 'tenders'),
+(10, 'Tenders Personales', '80', 'Tiras de pollo crujientes cubiertos en salsa', 'tenders'),
+(11, 'Tenders Medio Kilo', '120', '500 gr de tiras de pollo crujientes cubiertos en salsa', 'tenders'),
+(12, 'Tenders Kilo', '200', '1 kg de tiras de pollo crujientes cubiertos en salsa', 'tenders'),
 (13, 'Boneless Personales', '80', 'Cubitos de pollo con cubierta suave en salsa', 'boneless'),
-(14, 'Boneless Medio Kilo', '135', 'Cubitos de pollo con cubierta suave en salsa', 'boneless'),
-(15, 'Boneless Kilo', '190', 'Cubitos de pollo con cubierta suave en salsa', 'boneless'),
-(16, 'Alitas Personales', '75', 'Alitas de pollo cuubiertas en salsa', 'alitas'),
-(17, 'Alitas Medio Kilo', '130', 'Alitas de pollo cubiertas en salsa', 'alitas'),
-(18, 'Alitas Kilo', '180', 'Alitas de pollo cubiertas en salsa', 'alitas'),
-(19, 'Dedo de Queso', '12', 'Palitos de queso empanizados', 'complementos'),
-(20, 'Chilopoppers', '12', '', 'complementos'),
-(21, 'Aderezo', '5', 'Adereso ranch', 'complementos'),
-(22, 'Papas Fritas', '40', 'Papas fritas naturales', 'complementos'),
-(23, 'Papas Crisscut', '50', 'Papas crisscut naturales', 'complementos'),
-(24, 'Como El Edgar', '90', '', 'otros');
+(14, 'Boneless Medio Kilo', '120', '500 gr de cubitos de pollo con cubierta suave en salsa', 'boneless'),
+(15, 'Boneless Kilo', '200', '1 kg de cubitos de pollo con cubierta suave en salsa', 'boneless'),
+(16, 'Alitas Personales', '80', 'Alitas de pollo cuubiertas en salsa', 'alitas'),
+(17, 'Alitas Medio Kilo', '120', '500 gr de alitas de pollo cubiertas en salsa', 'alitas'),
+(18, 'Alitas Kilo', '200', '1 kg de alitas de pollo cubiertas en salsa', 'alitas'),
+(19, 'Dedo de Queso', '15', '1 palito de queso empanizado', 'complementos'),
+(20, 'Chilopopper', '12', 'Pequeño chile aderezado', 'complementos'),
+(22, 'Papas Fritas', '40', '250 gr de papas fritas naturales', 'complementos'),
+(23, 'Papas Crisscut', '50', '250 gr de papas crisscut naturales', 'complementos');
 
 -- --------------------------------------------------------
 
@@ -104,8 +102,19 @@ CREATE TABLE `pedidos` (
   `total` varchar(45) DEFAULT NULL,
   `tipo_pago` varchar(45) DEFAULT NULL,
   `pagado` varchar(45) DEFAULT NULL,
-  `estatus` varchar(200) DEFAULT NULL
+  `estatus` varchar(200) DEFAULT NULL,
+  `fecha_hora` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`idpedido`, `numero_mesa`, `pedido`, `total`, `tipo_pago`, `pagado`, `estatus`, `fecha_hora`) VALUES
+(6, '27', 'a:2:{i:0;a:4:{s:10:\"idPlatillo\";s:2:\"13\";s:11:\"extra_salsa\";s:1:\"1\";s:11:\"extra_papas\";s:1:\"6\";s:11:\"comentarios\";s:0:\"\";}i:1;a:4:{s:10:\"idPlatillo\";s:2:\"16\";s:11:\"extra_salsa\";s:1:\"1\";s:11:\"extra_papas\";s:1:\"6\";s:11:\"comentarios\";s:0:\"\";}}', '200', 'Efectivo', '0', '2', '2021-05-11 11:21:57'),
+(7, '27', 'a:2:{i:0;a:4:{s:10:\"idPlatillo\";s:2:\"16\";s:11:\"extra_salsa\";s:1:\"1\";s:11:\"extra_papas\";s:1:\"6\";s:11:\"comentarios\";s:0:\"\";}i:1;a:4:{s:10:\"idPlatillo\";s:2:\"10\";s:11:\"extra_salsa\";s:1:\"1\";s:11:\"extra_papas\";s:1:\"6\";s:11:\"comentarios\";s:0:\"\";}}', '200', 'Efectivo', '0', '0', '2021-05-11 11:22:43'),
+(8, '27', 'a:2:{i:0;a:4:{s:10:\"idPlatillo\";s:2:\"19\";s:11:\"extra_salsa\";i:0;s:11:\"extra_papas\";i:0;s:11:\"comentarios\";s:0:\"\";}i:1;a:4:{s:10:\"idPlatillo\";s:2:\"10\";s:11:\"extra_salsa\";s:1:\"1\";s:11:\"extra_papas\";s:1:\"6\";s:11:\"comentarios\";s:0:\"\";}}', '115', 'Tarjeta', '0', '1', '2021-05-11 11:49:01'),
+(9, '27', 'a:2:{i:0;a:4:{s:10:\"idPlatillo\";s:2:\"22\";s:11:\"extra_salsa\";i:0;s:11:\"extra_papas\";i:0;s:11:\"comentarios\";s:0:\"\";}i:1;a:4:{s:10:\"idPlatillo\";s:2:\"14\";s:11:\"extra_salsa\";s:1:\"1\";s:11:\"extra_papas\";s:1:\"6\";s:11:\"comentarios\";s:0:\"\";}}', '180', 'Efectivo', '0', '0', '2021-05-11 12:35:31');
 
 --
 -- Índices para tablas volcadas
@@ -149,7 +158,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
