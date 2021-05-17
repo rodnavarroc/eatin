@@ -1,0 +1,10 @@
+num_pedido,platillo,salsa,papas,comentarios,total,tipo_pago,fecha_hora
+6,"Boneless Personales",Buffalo,"Papas con queso y tocino",,200,Efectivo,"2021-05-11 11:21:57"
+6,"Alitas Personales",Buffalo,"Papas con queso y tocino",,200,Efectivo,"2021-05-11 11:21:57"
+7,"Alitas Personales",Buffalo,"Papas con queso y tocino",,200,Efectivo,"2021-05-11 11:22:43"
+7,"Tenders Personales",Buffalo,"Papas con queso y tocino",,200,Efectivo,"2021-05-11 11:22:43"
+8,"Dedo de Queso",,,,115,Tarjeta,"2021-05-11 11:49:01"
+8,"Tenders Personales",Buffalo,"Papas con queso y tocino",,115,Tarjeta,"2021-05-11 11:49:01"
+9,"Papas Fritas",,,,180,Efectivo,"2021-05-11 12:35:31"
+9,"Boneless Medio Kilo",Buffalo,"Papas con queso y tocino",,180,Efectivo,"2021-05-11 12:35:31"
+10,"Boneless Personales",Buffalo,"Papas con queso y tocino","Con salsa aparte",100,Tarjeta,"2021-05-17 18:26:34"

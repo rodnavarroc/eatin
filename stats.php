@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Mexico_City');
 
 if (!isset($_POST['fechaInicial'])){
 	$fecha1 = date("Y-m-d");
@@ -85,8 +86,8 @@ session_start();
 
 			<div class="container">
 				<div class="row">
-					<div class="col-6 px-1 py-0"><input class="form-control p-0" type="date" name="fechaInicial" min="2020-01-01" max="2030-12-31" value="<?php echo($fecha1Format[0]) ?>"></div>
-					<div class="col-6 px-1 py-0"><input class="form-control p-0" type="date" name="fechaFinal" min="2020-01-01" max="2030-12-31" value="<?php echo($fecha2Format[0]) ?>"></div>
+					<div class="col-6 px-1 py-0"><input class="form-control p-0 pl-2" type="date" name="fechaInicial" min="2020-01-01" max="2030-12-31" value="<?php echo($fecha1Format[0]) ?>"></div>
+					<div class="col-6 px-1 py-0"><input class="form-control p-0 pl-2" type="date" name="fechaFinal" min="2020-01-01" max="2030-12-31" value="<?php echo($fecha2Format[0]) ?>"></div>
 				</div>
 			</div>
 
@@ -94,6 +95,8 @@ session_start();
 		</form>
 		<hr>
 		<!-- fin del datepicker-->
+		<a href="crear_reporte.php?fInicio=<?php echo $fecha1?>&fFin=<?php echo $fecha2?>" rel="nofollow" class="form-control w-100 mt-3" style="background-color: #854D27; color: #F4C95D; text-decoration: none;"><center>Descargar reporte de ventas</center></a>
+		<hr>
 
         <p><b>Ventas del día</b></p>
         <p class="p-3 bg-light">Se han cobrado <b style="color: darkred;">$<?php echo($ventas)?> MXN</b> en <?php echo($totalPedidos)?> pedidos.</p>
@@ -127,7 +130,6 @@ session_start();
         ?>
         <tbody>
         </table>
-
 	</div>
 </body>
 
