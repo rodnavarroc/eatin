@@ -1,11 +1,21 @@
 <?php
+$fecha1 = $_POST['fechaInicial']." 00:00:00";
+$fecha2 = $_POST['fechaFinal']." 23:59:59";
+$fecha1Format = explode(" ", $fecha1);
+$fecha2Format = explode(" ", $fecha2);
+if (!isset($fecha1)){
+	$fecha1 = date("Y-m-d");
+}
+if(!isset($fecha2)){
+	$fecha2 = $_POST['fechaFinal']." 23:59:59";
+}
 
 $conexion=mysqli_connect("localhost", "root", "", "eatin");
 $mysqli = new mysqli("localhost", "root", "", "eatin");
 
-$sql = "SELECT * FROM pedidos";
+$sql = "SELECT * FROM pedidos WHERE fecha_hora BETWEEN '$fecha1' AND '$fecha2'";
 $res = mysqli_query($mysqli,$sql);
-
+###SELECT * FROM pedidos WHERE fecha BETWEEN '2021-05-11 11:21:57' AND '2021-05-11 11:22:43'
 $pagoEfectivo = 0;
 $pagoTarjeta = 0;
 $totalPedidos = 0;
@@ -64,7 +74,23 @@ session_start();
 	
 	<div class="container"  style="padding-top: 100px;">
 		<p style="font-family: News Cycle; padding: 5px 10px; font-size: 20px; background-color: #F4C95D; color: #854D27; border-radius: 7px;"><i class="fas fa-chart-pie"></i>&nbsp;Reporte de ventas</p>
-
+		<!-- datepicker -->
+		<form  action = "stats.php" method ="POST">
+			<table width="100%" >
+				<tr>
+					<th> <p>Fecha inicial</p> </th>
+					<th> <p>Fecha final</p> </th>
+				</tr>
+				<tr>
+					<td><input type="date" name="fechaInicial" min="2020-01-01" max="2030-12-31" value="<?php echo($fecha1Format[0]) ?>"></td>
+					<td><input type="date" name="fechaFinal" min="2020-01-01" max="2030-12-31" value="<?php echo($fecha2Format[0]) ?>"></td>
+				</tr>
+			</table>
+			<br>
+			<input type = "submit" value = "Filtrar">
+		</form>
+		<br><br>
+		<!-- fin del datepicker-->
         <p><b>Ventas del día</b></p>
         <p class="p-3 bg-light">Se han cobrado <b style="color: darkred;">$<?php echo($ventas)?> MXN</b> en <?php echo($totalPedidos)?> pedidos.</p>
 		
