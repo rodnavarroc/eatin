@@ -1,15 +1,20 @@
 <?php
-$fecha1 = $_POST['fechaInicial']." 00:00:00";
-$fecha2 = $_POST['fechaFinal']." 23:59:59";
-$fecha1Format = explode(" ", $fecha1);
-$fecha2Format = explode(" ", $fecha2);
+
+
 if (!isset($fecha1)){
 	$fecha1 = date("Y-m-d");
 }
+else{
+	$fecha1 = $_POST['fechaInicial']." 00:00:00";
+}
 if(!isset($fecha2)){
+	$fecha2 = date("Y-m-d");
+}
+else{
 	$fecha2 = $_POST['fechaFinal']." 23:59:59";
 }
-
+$fecha1Format = explode(" ", $fecha1);
+$fecha2Format = explode(" ", $fecha2);
 $conexion=mysqli_connect("localhost", "root", "", "eatin");
 $mysqli = new mysqli("localhost", "root", "", "eatin");
 
