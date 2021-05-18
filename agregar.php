@@ -7,6 +7,20 @@ $mysqli = new mysqli("localhost", "root", "", "eatin");
 
 $plat = $_GET['id'];
 
+session_start(); 
+$isArrayFull = false;
+if(count($_SESSION['carrito']) !=null){
+	$max = count($_SESSION['carrito']);
+} else {
+	$max = 0;
+}
+if(15 > intval($max))
+    {
+        $isArrayFull = true;
+    }
+	else{
+		$isArrayFull = false;
+	}
 ?>
 
 <!DOCTYPE html>
@@ -127,8 +141,10 @@ $plat = $_GET['id'];
 					</select>
 			  	</div>
 	            <?php } ?>
-
-			  	<input type="submit" name="enviar" class="btn btn-dark btn-block" value="Agregar" style="background-color: #2E1F27; color: #DD7230;">
+				
+			  	<input type="submit" name="enviar" class="btn btn-dark btn-block" value="Agregar" style="background-color: #2E1F27; color: #DD7230;" <?php if ($isArrayFull == false){ ?> disabled <?php   } ?> >
+				  <br />
+				<label style="display: inline-block; padding-left: 17.5%; padding-right: 17.5%; color:#854D27; font-weight : bolder;" <?php if ($isArrayFull == true){ ?> hidden <?php   } ?>>Su carrito se encuentra lleno. No puede agregar más productos en el mismo pedido.</label>
 	        </form>
 		</div>
 	</div>
