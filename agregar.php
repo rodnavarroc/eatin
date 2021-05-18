@@ -14,7 +14,7 @@ if(count($_SESSION['carrito']) !=null){
 } else {
 	$max = 0;
 }
-if(15 > intval($max))
+if(10 > intval($max))
     {
         $isArrayFull = true;
     }
